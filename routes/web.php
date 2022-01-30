@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\BrandController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +27,12 @@ Route::get ('/dashboard',[DashboardController::class,'dashboard'])->name('admin.
 
 // Product
 Route::get ('/product',[ProductController::class,'list'])->name('product.list');
+Route::get ('/product/create',[ProductController::class,'create'])->name('product.create');
+
+// Category
+Route::get ('/category',[CategoryController::class,'list'])->name('category.list');
+Route::get ('/category/create',[CategoryController::class,'create'])->name('category.create');
+
+// Brand
+Route::get ('/brand',[BrandController::class,'list'])->name('brand.list');
+Route::get ('/brand/create',[BrandController::class,'create'])->name('brand.create');

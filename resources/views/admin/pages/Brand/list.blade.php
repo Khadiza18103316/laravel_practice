@@ -1,22 +1,16 @@
 @extends('admin.master')
 @section('content')
 
-    <h3 class="mb-4">Product list</h3>
+    <h3 class="mb-4">Brand list</h3>
 
-    <a href="{{route('product.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
+    <a href="{{route('brand.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
     <br>
     <br>
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Image</th>
-                <th scope="col">Price</th>
-                <th scope="col">Description</th>
-                <th scope="col">Category</th>
-                <th scope="col">Brand</th>
-                <th scope="col">Action</th>
+                <th scope="col">Brand Name</th>
             </tr>
         </thead>
         <tbody>

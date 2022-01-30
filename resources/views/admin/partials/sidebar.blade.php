@@ -26,6 +26,22 @@
     </li>
 
     <!-- Divider -->
+    <hr class="sidebar-divider">
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('category.list')}}">
+            <i class="fas fa-copyright"></i>
+            <span>Category</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('brand.list')}}">
+            <i class="fab fa-apple"></i>
+            <span>Brand</span></a>
+    </li>
+
+    <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
