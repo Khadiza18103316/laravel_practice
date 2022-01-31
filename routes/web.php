@@ -28,6 +28,10 @@ Route::get ('/dashboard',[DashboardController::class,'dashboard'])->name('admin.
 // Product
 Route::get ('/product',[ProductController::class,'list'])->name('product.list');
 Route::get ('/product/create',[ProductController::class,'create'])->name('product.create');
+Route::post ('/product/store',[ProductController::class,'store'])->name('product.store');
+Route::delete ('/product/{id}/delete',[ProductController::class,'delete'])->name('product.delete');
+Route::get ('/product/{id}/edit',[ProductController::class,'edit'])->name('product.edit');
+Route::put ('/product/{id}/update',[ProductController::class,'update'])->name('product.update');
 
 // Category
 Route::get ('/category',[CategoryController::class,'list'])->name('category.list');

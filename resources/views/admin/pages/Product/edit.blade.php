@@ -1,6 +1,6 @@
 @extends("admin.master")
 @section('content')
-<h2>Product Info</h2>
+<h2>Edit Product</h2>
 <br>
 
 @if($errors->any())
@@ -17,26 +17,28 @@
    <p class="alert alert-success">{{session()->get('success')}}</p>
 @endif
 
-<form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
   @csrf
+  @method('put')
+
   <div class="mb-2">
     <label for="exampleInputEmail1" class="form-label">Product Name</label>
-    <input required name='name' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input value="{{ $product->name }}" name='name' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
 
   <div class="mb-2">
     <label for="exampleInputEmail1" class="form-label">Price</label>
-    <input required name='price' type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input value="{{ $product->price }}" name='price' type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   
   <div class="mb-2">
     <label for="exampleInputEmail1" class="form-label">Description</label>
-    <input required name='description' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input value="{{ $product->description }}" name='description' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
 
   <div class="mb-2">
     <label for="exampleInputEmail1" class="form-label">Add Category</label>
-    <select class="form-control" required name="category">
+    <select class="form-control" value="{{ $product->category->name }}" name="category">
         @foreach ($categories as $category)
         <option value="{{$category->id}}">{{$category->name}}</option>
         @endforeach
@@ -45,7 +47,7 @@
 
     <div class="mb-2">
       <label for="exampleInputEmail1" class="form-label">Add Brand</label>
-      <select class="form-control" required name="brand">
+      <select class="form-control" value="{{ $product->brand->name }}" name="brand">
           @foreach ($brands as $brand)
           <option value="{{$brand->id}}">{{$brand->name}}</option>
           @endforeach
@@ -54,7 +56,8 @@
 
         <div class="mb-2">
         <label for="exampleInputEmail1" class="form-label">Image</label>
-        <input required name='image' type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input name='image' type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <img src="{{ url('/uploads/' . $product->image) }}" width="80">
       </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
