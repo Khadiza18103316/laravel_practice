@@ -17,15 +17,20 @@
    <p class="alert alert-success">{{session()->get('success')}}</p>
 @endif
 
-{{-- <form action="#" method="POST" enctype="multipart/form-data">
-  @csrf --}}
+<form action="{{route('brand.store')}}" method="POST">
+  @csrf
   <div class="mb-2">
     <label for="exampleInputEmail1" class="form-label">Brand Name</label>
     <input required name='name' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
 
+  <div class="mb-2">
+    <label for="exampleInputEmail1" class="form-label">Description</label>
+    <input required name='description' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
    <a href="{{route('brand.list')}}" type="button" class="btn btn-danger">Back</a>
-{{-- </form> --}}
+</form>
 
 @endsection
